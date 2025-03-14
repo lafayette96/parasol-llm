@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ask DeepSeek</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      max-width: 600px;
+      width: 100%;
+      padding: 30px;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .logo {
+      width: 100px;
+      margin-bottom: 10px;
+    }
+    .redhat-name {
+      font-size: 18px;
+      font-weight: bold;
+      color: #cc0000;
+      margin-bottom: 20px;
+    }
+    /* Center the form elements */
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    textarea {
+      width: 95%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      resize: none;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+    textarea:focus {
+      border-color: #007bff;
+    }
+    button {
+      width: 50%;
+      padding: 12px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .response {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      text-align: left;
+      font-size: 16px;
+      color: #555;
+    }
+    .response strong {
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Red Hat Logo and Name -->
+    <img src="/static/Logo-Red_Hat-A-Standard-RGB.svg" alt="Red Hat Logo" class="logo" />
+    <h1>Ask DeepSeek about something</h1>
+    <form method="POST">
+      <textarea name="user_input" rows="4" placeholder="Type your question here...">{{ user_input if user_input else '' }}</textarea>
+      <button type="submit">Ask</button>
+    </form>
+    {% if llm_response %}
+    <div class="response">
+      <strong>Response:</strong>
+      <p>{{ llm_response }}</p>
+    </div>
+    {% endif %}
+  </div>
+</body>
+</html>
