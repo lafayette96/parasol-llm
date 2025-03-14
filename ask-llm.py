@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 # Replace with the actual URL of your LLM API
 API_URL = "https://deepseek-r1-distill-qwen-14b-maas-apicast-production.apps.prod.rhoai.rh-aiservices-bu.com:443"
-API_KEY = "ce6feae9b4ceec3229d9482ee2a224b8"
+API_KEY = "xxxx"
 
 @app.route("/", methods=["GET", "POST"])
 def index():
